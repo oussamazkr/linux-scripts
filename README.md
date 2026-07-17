@@ -15,4 +15,4 @@ Usage: ./analyze_log <logfile>
 Checks system health by displaying CPU, memory, disk usage, uptime, and the top memory-consuming processes.
 Optionally verifies the status of a specified systemd
 
-Usage ./healch_check.sh [service]
+Usage ./health_check.sh [service]
