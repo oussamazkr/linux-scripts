@@ -2,6 +2,8 @@
 
 ## backup.sh
 Creates a timestamped, compressed tar.gz backup of a given directory.
+Uploads the tarball to a specific s3 bucket
+Requires an attached IAM role with S3:PutObject permission.
 
 Usage: ./backup.sh (directory)
 
