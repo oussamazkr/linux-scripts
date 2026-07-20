@@ -25,6 +25,12 @@ if tar -czf "$backup_path" "$1"; then
 	echo "Backup created successfully, Find in $backup_path"
 	echo "size:"
 	du -sh "$backup_path" | cut -f1
+	if aws s3 cp "$backup_path" s3://oussamazkr-ec2-backups-2026/; then
+		echo "Backup uplaoded successfully"
+	else
+		echo "Upload failed — backup kept locally at $backup_path"
+		exit 1
+	fi
 	exit 0
 else 	
 	echo "Failed to backup directory"
