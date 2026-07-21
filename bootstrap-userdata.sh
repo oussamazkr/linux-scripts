@@ -1,4 +1,16 @@
 #!/bin/bash
+
+export HOME=/home/ec2-user
+
+if command -v aws >/dev/null 2>&1; then
+    echo "AWS CLI already installed."
+else
+    echo "Installing AWS CLI..."
+    dnf install -y awscli
+fi
+
+cat > /home/ec2-user/backup.sh << 'EOF'
+#!/bin/bash
 if [ "$#" -eq 0 ]; then
         echo "Usage: ./backup.sh <directory>"
         exit 1
@@ -36,3 +48,8 @@ else
         rm -f "$backup_path"
         exit 1
 fi
+EOF
+
+chmod +x /home/ec2-user/backup.sh
+
+/home/ec2-user/backup.sh /etc

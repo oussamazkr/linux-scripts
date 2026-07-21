@@ -18,3 +18,7 @@ Checks system health by displaying CPU, memory, disk usage, uptime, and the top 
 Optionally verifies the status of a specified systemd
 
 Usage ./health_check.sh [service]
+
+## bootstrap-userdata.sh
+
+bootstraps a fresh EC2 instance to back up a directory to S3 on first boot, requires EC2-S3-Backup-Role attached.
